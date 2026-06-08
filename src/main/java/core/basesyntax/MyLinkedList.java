@@ -1,7 +1,6 @@
 package core.basesyntax;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 public class MyLinkedList<T> implements MyLinkedListInterface<T> {
     private Node<T> first;
@@ -19,6 +18,7 @@ public class MyLinkedList<T> implements MyLinkedListInterface<T> {
             this.next = next;
         }
     }
+
     @Override
     public void add(T value) {
         Node<T> l = last;
@@ -120,7 +120,7 @@ public class MyLinkedList<T> implements MyLinkedListInterface<T> {
     private Node<T> getNode(int index) {
         if (index < (size >> 1)) {
             Node<T> x = first;
-            for (int i =0; i < index; i++) {
+            for (int i = 0; i < index; i++) {
                 x = x.next;
             }
             return x;
@@ -132,6 +132,7 @@ public class MyLinkedList<T> implements MyLinkedListInterface<T> {
             return x;
         }
     }
+
     private T unlink(Node<T> node) {
         T element = node.value;
         Node<T> next = node.next;
@@ -143,7 +144,7 @@ public class MyLinkedList<T> implements MyLinkedListInterface<T> {
             node.prev = null;
         }
         if (next == null) {
-            last =prev;
+            last = prev;
         } else {
             next.prev = prev;
             node.next = null;
@@ -165,6 +166,5 @@ public class MyLinkedList<T> implements MyLinkedListInterface<T> {
             throw new ArrayIndexOutOfBoundsException("Invalid index for add: " + index);
         }
     }
-
 
 }
